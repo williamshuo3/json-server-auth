@@ -9,8 +9,8 @@ const signupBtn = document.querySelector('#signup')
 
 signupBtn.addEventListener('click',function(e){
    if(
-    inputEmail.value.trim() == "" 
-    // Name.value.trim() == "" ||
+    inputEmail.value.trim() == "" ||
+    Name.value.trim() == "" 
     // phone.value.trim() == "" 
    ){
         alert("請確實填寫")
@@ -27,13 +27,13 @@ let obj = {};
 obj.email = inputEmail.value;
 obj.password = inputPassword.value;
 obj.checkPassword = checkPassword.value;
-// obj.name = Name.value;
-// obj.phone = phone.value;
+obj.nickName = Name.value;
+// obj.Phone = phone.value;
 signUp(obj);
 })
 
 function signUp(obj){
-    axios.post(' https://json-server-auth-q2r9.onrender.com/users',obj)
+    axios.post(' https://json-server-auth-q2r9.onrender.com/signup',obj)
     .then(function(res){
         if(res.status == 201){
             window.location.assign("login.html");
